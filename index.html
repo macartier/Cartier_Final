@@ -1,0 +1,35 @@
+<!doctype html>
+<script src="code/game.js"></script>
+<script src="code/game_levels.js"></script>
+<script src="code/canvasdisplay.js"></script>
+<link rel="stylesheet" href="css/game.css">
+<div id="jumper"></div>
+
+<body>
+  <script>
+  	init();
+
+    function init(){
+	var canvas = document.createElement("canvas");
+	var context = canvas.getContext('2d');
+	canvas.width = 600;
+	canvas.height = 450;
+	parent = document.getElementById("jumper");
+	parent.appendChild(canvas);
+
+	context.fillStyle = 'lightBlue';
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	context.fillStyle = 'white';
+	context.font = 'bold 1em sans-serif';
+	context.textAlign = 'center';
+	context.fillText("Ready, set, CLICK!", canvas.width/2, canvas.height/2);
+
+	canvas.onclick = function(event){
+	runGame(GAME_LEVELS, CanvasDisplay);
+	canvas.remove();
+	};
+
+}
+
+  </script>
+</body>
